@@ -63,11 +63,14 @@ body {
   padding: 8px 15px;
   border-radius: 20px;
   transition: 0.3s;
+  
 }
 
 .menu a:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0);
   color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(24, 24, 24, 0.445);
 }
 
 #tema-btn {
