@@ -3,32 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Matérias - Portfólio AWK</title>
+  <title>Materias - Portfólio AWK</title>
   <link rel="stylesheet" href="matcss.css">
 </head>
 <body>
-
   <header class="navbar">
     <div class="logo">Arthur Wolf</div>
-
-    <nav class="menu">
+    <nav class="menu" id="menu">
       <a href="index.html">Início</a>
       <a href="materias.html">Matérias</a>
       <a href="sobre.html">Sobre</a>
       <a href="projetos.html">Projetos</a>
       <a href="contato.html">Contato</a>
     </nav>
-
-    <button id="tema-btn"></button>
+    <div class="navbar-right">
+      <button id="tema-btn"></button>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </header>
-
   <main>
     <section style="padding-top: 150px; text-align: center;">
       <h1>Nova Seção</h1>
       <p>Comece a montar seu conteúdo aqui!</p>
     </section>
   </main>
-
   <script src="script.js"></script>
 </body>
 </html>
