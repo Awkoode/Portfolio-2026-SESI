@@ -208,3 +208,53 @@ body.claro #tema-btn {
     transform: none;
   }
 }
+.popup-materias {
+  position: absolute;
+  top: 85px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.9);
+
+  background: rgba(255, 255, 255, 0.021);
+  backdrop-filter: blur(35px);
+  -webkit-backdrop-filter: blur(25px);
+
+  border-radius: 20px;
+  padding: 18px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.25s ease;
+
+  z-index: 99999;
+  isolation: isolate;
+
+  /* 👇 brilho */
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(138, 43, 226, 0.3); /* roxo suave */
+}
+
+.popup-materias a {
+  text-decoration: none;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 12px;
+  transition: 0.2s;
+
+  font-size: 14px;
+  line-height: 1.4; /* 👈 importante */
+}
+
+.popup-materias a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.popup-materias.ativo {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) scale(1);
+}
