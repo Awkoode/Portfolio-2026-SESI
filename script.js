@@ -39,3 +39,42 @@ if (btnMaterias && popupMaterias) {
     }
   });
 }
+const cards = document.querySelectorAll('.card');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('ativo');
+    }
+  });
+}, {
+  threshold: 0.3
+});
+
+cards.forEach(card => {
+  observer.observe(card);
+});
+// POPUP HABILIDADES
+const botoes = document.querySelectorAll('.btn-hab');
+const overlay = document.getElementById('overlay');
+const popups = document.querySelectorAll('.popup');
+const fecharBtns = document.querySelectorAll('.fechar');
+
+botoes.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const id = btn.getAttribute('data-popup');
+    document.getElementById(id).classList.add('ativo');
+    overlay.classList.add('ativo');
+  });
+});
+
+fecharBtns.forEach(btn => {
+  btn.addEventListener('click', fecharPopup);
+});
+
+overlay.addEventListener('click', fecharPopup);
+
+function fecharPopup() {
+  popups.forEach(p => p.classList.remove('ativo'));
+  overlay.classList.remove('ativo');
+}
