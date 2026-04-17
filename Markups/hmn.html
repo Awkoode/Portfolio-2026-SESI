@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Matemática</title>
-  <link rel="stylesheet" href="mtms.css">
+  <title>Humanas - Portfólio AWK</title>
+  <link rel="stylesheet" href="/Styles/hmns.css">
 </head>
 <body>
 
@@ -19,69 +19,57 @@
       <a href="contato.html">Contato</a>
     </nav>
 
-    <button id="tema-btn"></button>
-
     <div id="popup-materias" class="popup-materias">
       <a href="mtm.html">Matemática</a>
       <a href="ntr.html">Natureza</a>
       <a href="#">Humanas</a>
-      <a href="#">Linguagens</a>
+      <a href="lng.html">Linguagens</a>
       <a href="#">Técnico</a>
     </div>
+
+    <button id="tema-btn"></button>
   </header>
 
   <main>
 
     <!-- TÍTULO -->
     <section class="titulo">
-      <h1>Projetos</h1>
+      <h1>Ciências Humanas</h1>
     </section>
 
     <!-- CARDS -->
     <section class="cards">
 
-      <!-- CARD 1 -->
       <div class="card">
         <div class="card-container">
-
           <div class="card-top"></div>
-
           <div class="card-bottom">
-            <h2>Projeto 1</h2>
-            <p>Descrição do projeto.</p>
+            <h2>projeto humano</h2>
+            <p>descricao</p>
             <button class="btn-hab" data-popup="popup1">Habilidades</button>
           </div>
-
         </div>
       </div>
 
-      <!-- CARD 2 -->
       <div class="card">
         <div class="card-container">
-
           <div class="card-top"></div>
-
           <div class="card-bottom">
-            <h2>Projeto 2</h2>
-            <p>Descrição do projeto.</p>
+            <h2>projeto humano</h2>
+            <p>descricao</p>
             <button class="btn-hab" data-popup="popup2">Habilidades</button>
           </div>
-
         </div>
       </div>
 
-      <!-- CARD 3 -->
       <div class="card">
         <div class="card-container">
-
           <div class="card-top"></div>
-
           <div class="card-bottom">
-            <h2>Projeto 3</h2>
-            <p>Descrição do projeto.</p>
+            <h2>projeto humano</h2>
+            <p>descricao</p>  
             <button class="btn-hab" data-popup="popup3">Habilidades</button>
           </div>
-
         </div>
       </div>
 
@@ -89,28 +77,40 @@
 
   </main>
 
-  <!-- OVERLAY -->
+  <!-- POPUPS -->
   <div class="overlay" id="overlay"></div>
 
-  <!-- POPUPS -->
   <div class="popup" id="popup1">
     <button class="fechar">✖</button>
-    <h2>Projeto 1</h2>
-    <p>Texto longo aqui...</p>
+    <h2>Biologia</h2>
+    <p>Texto grande aqui...</p>
   </div>
 
   <div class="popup" id="popup2">
     <button class="fechar">✖</button>
-    <h2>Projeto 2</h2>
-    <p>Texto longo aqui...</p>
+    <h2>Química</h2>
+    <p>Texto grande aqui...</p>
   </div>
 
   <div class="popup" id="popup3">
     <button class="fechar">✖</button>
-    <h2>Projeto 3</h2>
-    <p>Texto longo aqui...</p>
+    <h2>Física</h2>
+    <p>Texto grande aqui...</p>
   </div>
 
-  <script src="script.js"></script>
+  <footer class="footer">
+    <div class="footer-content">
+      <p>© 2026 Arthur Wolf. Todos os direitos reservados.</p>
+
+      <div class="tecnologias">
+        <span>Desenvolvido com:</span>
+        <span class="tech">HTML</span>
+        <span class="tech">CSS</span>
+        <span class="tech">JavaScript</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/Script/script.js"></script>
 </body>
 </html>

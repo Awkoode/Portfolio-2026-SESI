@@ -7,7 +7,7 @@
 /* BACKGROUND ANIMADO */
 body {
   min-height: 100vh;
-  font-family: 'Segoe UI', Arial, sans-serif;
+  font-family: 'Milk Choco', sans-serif;
   color: white;
   background: linear-gradient(-45deg, #000000, #1a001f, #4b0082, #2e003e, #000000);
   background-size: 400% 400%;
@@ -93,7 +93,7 @@ body.claro {
   border: none;
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.1);
-  background-image: url('solicon.png');
+  background-image: url('/Resources/solicon.png');
   background-repeat: no-repeat;
   filter: invert(1);
   background-position: center;
@@ -154,7 +154,7 @@ body.claro .hamburger {
 }
 
 body.claro #tema-btn {
-  background-image: url('luaicon.png');
+  background-image: url('/Resources/luaicon.png');
   background-color: rgba(0, 0, 0, 0.05);
 }
 
@@ -383,4 +383,36 @@ body.claro #tema-btn {
   color: white;
   font-size: 18px;
   cursor: pointer;
+}
+@font-face {
+  font-family: 'Milk Choco';
+  src: url('/Resources/Milk\ Choco.otf') format('truetype');
+}
+.footer {
+  margin-top: 60px;
+  padding: 25px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-content {
+  width: 100%;
+  max-width: 1000px;
+  padding: 20px;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  text-align: center;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.footer-content p {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
 }

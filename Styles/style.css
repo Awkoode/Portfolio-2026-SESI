@@ -6,26 +6,20 @@
 
 body {
   min-height: 100vh;
-  font-family: 'Segoe UI', Arial, sans-serif;
   color: white;
   background: linear-gradient(-45deg, #000000, #1a001f, #4b0082, #2e003e, #000000);
   background-size: 400% 400%;
   animation: fundoAnimado 10s ease infinite;
   transition: background 0.5s ease;
+  font-family: 'Milk Choco', sans-serif;
 }
 
 @keyframes fundoAnimado {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-body.claro {
-  background: linear-gradient(-45deg, #f0f0f0, #e0e0e0, #ffffff);
-  color: #222;
-}
-
-/* NAVBAR */
 .navbar {
   position: fixed;
   top: 20px;
@@ -91,16 +85,16 @@ body.claro {
   border: none;
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.1);
-  background-image: url('solicon.png');
+  background-image: url('/Resources/solicon.png');
   background-repeat: no-repeat;
   background-position: center;
+  filter: invert(1);
   background-size: 60%;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  filter: invert(1);
 }
 
 #tema-btn:hover {
-  transform: translateY(-35px) scale(1.2);
+  transform: translateY(-15px) scale(1.2);
   background-color: rgba(255, 255, 255, 0.2);
   box-shadow: 0 10px 20px rgba(255, 255, 0, 0.2);
 }
@@ -132,6 +126,50 @@ body.claro {
 .hamburger.ativo span:nth-child(2) { opacity: 0; }
 .hamburger.ativo span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
+/* SOBRE */
+.sobre {
+  padding: 150px 20px 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.sobre-card {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  padding: 50px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  align-items: center;
+}
+
+.sobre-fotos img {
+  width: 300px;
+  border-radius: 10px;
+  display: block;
+}
+
+.sobre-texto h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.sobre-texto p {
+  line-height: 1.6;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* MODO CLARO */
+body.claro {
+  background: linear-gradient(-45deg, #f0f0f0, #e0e0e0, #ffffff);
+  color: #222;
+}
+
 body.claro .navbar {
   background: rgba(0, 0, 0, 0.05);
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -151,10 +189,14 @@ body.claro .hamburger {
 }
 
 body.claro #tema-btn {
-  background-image: url('luaicon.png');
+  background-image: url('/Resources/luaicon.png');
   background-color: rgba(0, 0, 0, 0.05);
 }
+body.claro .sobre-texto p {
+  color: rgba(0, 0, 0, 0.7);
+}
 
+/* RESPONSIVO */
 @media (max-width: 768px) {
   .navbar {
     height: auto;
@@ -203,6 +245,30 @@ body.claro #tema-btn {
   #tema-btn:hover {
     transform: none;
   }
+
+  .sobre {
+    padding-top: 160px;
+  }
+
+  .sobre-card {
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .sobre-fotos img {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .sobre-texto h2 {
+    font-size: 28px;
+  }
+
+  .sobre-texto p {
+    font-size: 16px;
+  }
 }
 .popup-materias {
   position: absolute;
@@ -210,7 +276,7 @@ body.claro #tema-btn {
   left: 50%;
   transform: translateX(-50%) scale(0.9);
 
-  background: rgba(255, 255, 255, 0.021);
+  background: rgba(51, 1, 26, 0.027);
   backdrop-filter: blur(35px);
   -webkit-backdrop-filter: blur(25px);
 
@@ -225,7 +291,7 @@ body.claro #tema-btn {
   pointer-events: none;
   transition: 0.25s ease;
 
-  z-index: 99999;
+  z-index: 9999;
   isolation: isolate;
 
   /* 👇 brilho */
@@ -250,7 +316,99 @@ body.claro #tema-btn {
 }
 
 .popup-materias.ativo {
-  opacity: 1;
+  opacity: 2;
   pointer-events: auto;
   transform: translateX(-50%) scale(1);
+}
+.sobre-fotos {
+  display: inline-block;
+  padding: 5px;
+  border-radius: 15px;
+  background: linear-gradient(45deg, #00ffff, #ff00ff, #00ff88);
+  background-size: 300% 300%;
+  animation: animarBorda 4s linear infinite;
+}
+@keyframes animarBorda {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+body.claro .sobre-fotos{
+  display: inline-block;
+  padding: 5px;
+  border-radius: 15px;
+  background: linear-gradient(45deg, #ffffff, #808080, #000000);
+  background-size: 300% 300%;
+  animation: animarBorda 4s linear infinite;
+}
+@keyframes animarBorda {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.footer {
+  margin-top: 60px;
+  padding: 25px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-content {
+  width: 100%;
+  max-width: 1000px;
+  padding: 20px;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  text-align: center;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.footer-content p {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.tecnologias {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.tech {
+  padding: 5px 10px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.08);
+  transition: 0.3s;
+}
+
+.tech:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-2px);
+}
+
+/* modo claro */
+body.claro .footer-content {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.claro .footer-content p {
+  color: rgba(0,0,0,0.6);
+}
+
+body.claro .tech {
+  background: rgba(0,0,0,0.08);
+}
+@font-face {
+  font-family: 'Milk Choco';
+  src: url('/Resources/Milk\ Choco.otf') format('truetype');
 }

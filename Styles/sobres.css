@@ -4,10 +4,14 @@
   box-sizing: border-box;
 }
 
-/* BACKGROUND ANIMADO */
+@font-face {
+  font-family: 'Milk Choco';
+  src: url('/Resources/Milk\ Choco.otf') format('truetype');
+}
+
 body {
   min-height: 100vh;
-  font-family: 'Segoe UI', Arial, sans-serif;
+  font-family: 'Milk Choco', sans-serif;
   color: white;
   background: linear-gradient(-45deg, #000000, #1a001f, #4b0082, #2e003e, #000000);
   background-size: 400% 400%;
@@ -21,7 +25,6 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-/* BACKGROUND — MODO CLARO */
 body.claro {
   background: linear-gradient(-45deg, #f0f0f0, #e0e0e0, #ffffff);
   color: #222;
@@ -93,12 +96,12 @@ body.claro {
   border: none;
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.1);
-  background-image: url('solicon.png');
+  background-image: url('/Resources/solicon.png');
   background-repeat: no-repeat;
-  filter: invert(1);
   background-position: center;
   background-size: 60%;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  filter: invert(1);
 }
 
 #tema-btn:hover {
@@ -134,7 +137,6 @@ body.claro {
 .hamburger.ativo span:nth-child(2) { opacity: 0; }
 .hamburger.ativo span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* NAVBAR — MODO CLARO */
 body.claro .navbar {
   background: rgba(0, 0, 0, 0.05);
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -154,11 +156,10 @@ body.claro .hamburger {
 }
 
 body.claro #tema-btn {
-  background-image: url('luaicon.png');
+  background-image: url('/Resources/luaicon.png');
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-/* NAVBAR — RESPONSIVO */
 @media (max-width: 768px) {
   .navbar {
     height: auto;
@@ -214,8 +215,9 @@ body.claro #tema-btn {
   left: 50%;
   transform: translateX(-50%) scale(0.9);
 
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.021);
+  backdrop-filter: blur(35px);
+  -webkit-backdrop-filter: blur(25px);
 
   border-radius: 20px;
   padding: 18px;
@@ -228,7 +230,8 @@ body.claro #tema-btn {
   pointer-events: none;
   transition: 0.25s ease;
 
-  z-index: 9999;
+  z-index: 99999;
+  isolation: isolate;
 
   /* 👇 brilho */
   box-shadow: 
@@ -255,4 +258,32 @@ body.claro #tema-btn {
   opacity: 1;
   pointer-events: auto;
   transform: translateX(-50%) scale(1);
+}
+.footer {
+  margin-top: 60px;
+  padding: 25px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-content {
+  width: 100%;
+  max-width: 1000px;
+  padding: 20px;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  text-align: center;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.footer-content p {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
 }
