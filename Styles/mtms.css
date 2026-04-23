@@ -102,7 +102,7 @@ body.claro {
 }
 
 #tema-btn:hover {
-  transform: translateY(-35px) scale(1.2);
+  transform: translateY(-15px) scale(1.2);
   background-color: rgba(255, 255, 255, 0.2);
   box-shadow: 0 10px 20px rgba(255, 255, 0, 0.2);
 }
@@ -221,7 +221,6 @@ body.claro #tema-btn {
   padding: 18px;
 
   display: flex;
-  flex-direction: column;
   gap: 10px;
 
   opacity: 0;

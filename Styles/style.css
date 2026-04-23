@@ -276,7 +276,7 @@ body.claro .sobre-texto p {
   left: 50%;
   transform: translateX(-50%) scale(0.9);
 
-  background: rgba(51, 1, 26, 0.027);
+  background: rgba(0, 0, 0, 0.068);
   backdrop-filter: blur(35px);
   -webkit-backdrop-filter: blur(25px);
 
@@ -284,7 +284,6 @@ body.claro .sobre-texto p {
   padding: 18px;
 
   display: flex;
-  flex-direction: column;
   gap: 10px;
 
   opacity: 0;

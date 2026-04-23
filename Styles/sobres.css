@@ -105,7 +105,7 @@ body.claro {
 }
 
 #tema-btn:hover {
-  transform: translateY(-35px) scale(1.2);
+  transform: translateY(-15px) scale(1.2);
   background-color: rgba(255, 255, 255, 0.2);
   box-shadow: 0 10px 20px rgba(255, 255, 0, 0.2);
 }
@@ -223,7 +223,6 @@ body.claro #tema-btn {
   padding: 18px;
 
   display: flex;
-  flex-direction: column;
   gap: 10px;
 
   opacity: 0;
@@ -286,4 +285,42 @@ body.claro #tema-btn {
   margin-bottom: 10px;
   font-size: 14px;
   color: rgba(255, 255, 255, 0.7);
+}
+/* SEÇÃO SOBRE */
+.sobre-container {
+  max-width: 900px;
+  margin: 80px auto;
+  margin-top: 190px;
+  padding: 30px;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);  
+}
+
+.sobre-container h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.sobre-container p {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* modo claro */
+body.claro .sobre-container {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.claro .sobre-container p {
+  color: #333;
 }

@@ -102,7 +102,7 @@ body.claro {
 }
 
 #tema-btn:hover {
-  transform: translateY(-35px) scale(1.2);
+  transform: translateY(-15px) scale(1.2);
   background-color: rgba(255, 255, 255, 0.2);
   box-shadow: 0 10px 20px rgba(255, 255, 0, 0.2);
 }
@@ -222,7 +222,6 @@ body.claro #tema-btn {
   padding: 18px;
 
   display: flex;
-  flex-direction: column;
   gap: 10px;
 
   opacity: 0;
@@ -289,4 +288,126 @@ body.claro #tema-btn {
   margin-bottom: 10px;
   font-size: 14px;
   color: rgba(255, 255, 255, 0.7);
+}
+/* SEÇÃO CONTATO */
+.contato-container {
+  max-width: 1000px;
+  margin: 150px auto 60px;
+  padding: 30px;
+  text-align: center;
+}
+
+.contato-container h1 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.contato-desc {
+  margin-bottom: 30px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* GRID */
+.contato-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+/* CARDS */
+.contato-card {
+  text-decoration: none;
+  color: white;
+
+  padding: 25px;
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  transition: 0.3s;
+}
+
+.contato-card span {
+  font-size: 30px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.contato-card h3 {
+  margin-bottom: 5px;
+}
+
+.contato-card p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* HOVER */
+.contato-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+/* MODO CLARO */
+body.claro .contato-card {
+  background: rgba(0, 0, 0, 0.05);
+  color: #222;
+}
+
+body.claro .contato-card p {
+  color: #444;
+}
+
+body.claro .contato-desc {
+  color: #444;
+}
+/* GRADIENTE ANIMADO NOS CARDS */
+.contato-card {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* camada do gradiente */
+.contato-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    120deg,
+    #8a2be2,
+    #4b0082,
+    #00c3ff,
+    #8a2be2
+  );
+
+  background-size: 300% 300%;
+  opacity: 0;
+  transition: 0.4s;
+
+  z-index: -1;
+}
+
+/* animação do gradiente */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* hover ativa o gradiente */
+.contato-card:hover::before {
+  opacity: 0.25;
+  animation: gradientMove 3s ease infinite;
+}
+
+/* mantém o conteúdo visível por cima */
+.contato-card * {
+  position: relative;
+  z-index: 2;
 }
