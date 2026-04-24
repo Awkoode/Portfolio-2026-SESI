@@ -411,3 +411,12 @@ body.claro .contato-desc {
   position: relative;
   z-index: 2;
 }
+body.claro .contato-card::before {
+  background: linear-gradient(
+    120deg,
+    #000000,
+    #464646,
+    #f7f7f7,
+    #b3b3b3
+  );
+}

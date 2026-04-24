@@ -437,25 +437,18 @@ body.claro #tema-btn {
   position: relative;
 }
 .btn-portatil {
-  padding: 10px 18px;
-  border-radius: 14px;
+  padding: 10px 16px;
+  border-radius: 12px;
   border: none;
 
   color: white;
-  font-size: 13px;
+  font-size: 12px;
   text-decoration: none;
 
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
 
-  position: relative;
-  overflow: hidden;
-
   transition: 0.3s;
-
-  /* 👇 alinhamento à direita */
-  margin-left: auto;
-  display: inline-block;
 }
 
 /* GRADIENTE */
@@ -496,7 +489,43 @@ body.claro #tema-btn {
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 .btn-container {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 10px;
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+}
+.card-bottom-relatorio {
+  position: relative;
+}
+.card-bottom {
+  margin-bottom: 40px;
+}
+.card-bottom-relatorio h2 {
+  margin-top: auto;
+}
+body.claro .btn-hab {
+  color: #000000;
+  background-color: #69696991;
+}
+body.claro .card-container{
+  background-color: #8181810e;
+  box-shadow:#000000;
+}
+body.claro .btn-portatil:hover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    120deg,
+    #666666,
+    #ffffff,
+    #000000,
+    #919191
+  );
+
+  background-size: 300% 300%;
+  opacity: 0;
+  z-index: 0;
+
+  transition: 0.4s;
 }
