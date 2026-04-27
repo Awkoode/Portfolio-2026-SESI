@@ -11,7 +11,7 @@ body {
   background-size: 400% 400%;
   animation: fundoAnimado 10s ease infinite;
   transition: background 0.5s ease;
-  font-family: 'Milk Choco', sans-serif;
+  font-family: 'PR Confidential', sans-serif;
 }
 
 @keyframes fundoAnimado {
@@ -290,6 +290,7 @@ body.claro .sobre-texto p {
   pointer-events: none;
   transition: 0.25s ease;
 
+  overflow: visible;
   z-index: 9999;
   isolation: isolate;
 
@@ -408,6 +409,34 @@ body.claro .tech {
   background: rgba(0,0,0,0.08);
 }
 @font-face {
-  font-family: 'Milk Choco';
-  src: url('/Resources/Milk\ Choco.otf') format('truetype');
+  font-family: 'PR Confidential';
+  src: url('/Resources/PR\ Confidential.otf') format('truetype');
+}
+.sub-popup {
+  position: absolute;
+  top: 100%; /* aparece abaixo do botão */
+  right: 0;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+
+  padding: 10px;
+  border-radius: 12px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.9);
+
+  transition: 0.2s;
+  z-index: 10000; /* maior que o outro */
+}
+
+.sub-popup.ativo {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
 }

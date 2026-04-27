@@ -1,0 +1,450 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BACKGROUND ANIMADO */
+body {
+  min-height: 100vh;
+  font-family: 'Milk Choco', sans-serif;
+  color: white;
+  background: linear-gradient(-45deg, #000000, #1a001f, #4b0082, #2e003e, #000000);
+  background-size: 400% 400%;
+  animation: fundoAnimado 10s ease infinite;
+  transition: background 0.5s ease;
+}
+
+@keyframes fundoAnimado {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* BACKGROUND — MODO CLARO */
+body.claro {
+  background: linear-gradient(-45deg, #f0f0f0, #e0e0e0, #ffffff);
+  color: #222;
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1000px;
+  height: 70px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1000;
+  overflow: visible;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  flex: 1;
+}
+
+.menu {
+  display: flex;
+  gap: 15px;
+  flex: 2;
+  justify-content: center;
+}
+
+.menu a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.menu a:hover {
+  background: rgba(0, 0, 0, 0);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(24, 24, 24, 0.445);
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#tema-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.1);
+  background-image: url('/Resources/solicon.png');
+  filter: invert(1);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 60%;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#tema-btn:hover {
+  transform: translateY(-15px) scale(1.2);
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 20px rgba(255, 255, 0, 0.2);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: white;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+.hamburger.ativo span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.ativo span:nth-child(2) { opacity: 0; }
+.hamburger.ativo span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* NAVBAR — MODO CLARO */
+body.claro .navbar {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.claro .logo,
+body.claro .menu a {
+  color: #222;
+}
+
+body.claro .hamburger span {
+  background: #222;
+}
+
+body.claro .hamburger {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+body.claro #tema-btn {
+  background-image: url('/Resources/luaicon.png');
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* NAVBAR — RESPONSIVO */
+@media (max-width: 768px) {
+  .navbar {
+    height: auto;
+    top: 15px;
+    padding: 12px 20px;
+    border-radius: 20px;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  .navbar.expandida {
+    flex-wrap: wrap;
+    border-radius: 24px;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .menu {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
+    padding-top: 10px;
+    margin-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    flex: unset;
+  }
+
+  .menu.aberto {
+    display: flex;
+  }
+
+  .menu a {
+    padding: 10px 12px;
+    border-radius: 12px;
+    font-size: 14px;
+  }
+
+  .menu a:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: none;
+  }
+
+  #tema-btn:hover {
+    transform: none;
+  }
+}
+.popup-materias {
+  position: absolute;
+  top: 85px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.9);
+
+  background: rgba(255, 255, 255, 0.021);
+  backdrop-filter: blur(35px);
+  -webkit-backdrop-filter: blur(25px);
+
+  border-radius: 20px;
+  padding: 18px;
+
+  display: flex;
+  gap: 10px;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.25s ease;
+
+  z-index: 99999;
+  isolation: isolate;
+
+  /* 👇 brilho */
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(138, 43, 226, 0.3); /* roxo suave */
+}
+
+.popup-materias a {
+  text-decoration: none;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 12px;
+  transition: 0.2s;
+
+  font-size: 14px;
+  line-height: 1.4; /* 👈 importante */
+}
+
+.popup-materias a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.popup-materias.ativo {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) scale(1);
+}
+@font-face {
+  font-family: 'Milk Choco';
+  src: url('/Resources/PR\ Confidential.otf') format('truetype');
+}
+.footer {
+  margin-top: 60px;
+  padding: 25px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-content {
+  width: 100%;
+  max-width: 1000px;
+  padding: 20px;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  text-align: center;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.footer-content p {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+}
+/* SEÇÃO CONTATO */
+.contato-container {
+  max-width: 1000px;
+  margin: 150px auto 60px;
+  padding: 30px;
+  text-align: center;
+}
+
+.contato-container h1 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.contato-desc {
+  margin-bottom: 30px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* GRID */
+.contato-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+/* CARDS */
+.contato-card {
+  text-decoration: none;
+  color: white;
+
+  padding: 25px;
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  transition: 0.3s;
+}
+
+.contato-card span {
+  font-size: 30px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.contato-card h3 {
+  margin-bottom: 5px;
+}
+
+.contato-card p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* HOVER */
+.contato-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+/* MODO CLARO */
+body.claro .contato-card {
+  background: rgba(0, 0, 0, 0.05);
+  color: #222;
+}
+
+body.claro .contato-card p {
+  color: #444;
+}
+
+body.claro .contato-desc {
+  color: #444;
+}
+/* GRADIENTE ANIMADO NOS CARDS */
+.contato-card {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* camada do gradiente */
+.contato-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    120deg,
+    #8a2be2,
+    #4b0082,
+    #00c3ff,
+    #8a2be2
+  );
+
+  background-size: 300% 300%;
+  opacity: 0;
+  transition: 0.4s;
+
+  z-index: -1;
+}
+
+/* animação do gradiente */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* hover ativa o gradiente */
+.contato-card:hover::before {
+  opacity: 0.25;
+  animation: gradientMove 3s ease infinite;
+}
+
+/* mantém o conteúdo visível por cima */
+.contato-card * {
+  position: relative;
+  z-index: 2;
+}
+body.claro .contato-card::before {
+  background: linear-gradient(
+    120deg,
+    #000000,
+    #464646,
+    #f7f7f7,
+    #b3b3b3
+  );
+}
+.sub-popup {
+  position: absolute;
+  top: 100%; /* aparece abaixo do botão */
+  right: 0;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+
+  padding: 10px;
+  border-radius: 12px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.9);
+
+  transition: 0.2s;
+  z-index: 10000; /* maior que o outro */
+}
+
+.sub-popup.ativo {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}

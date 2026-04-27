@@ -255,9 +255,10 @@ body.claro #tema-btn {
   pointer-events: auto;
   transform: translateX(-50%) scale(1);
 }
-/* TÍTULO */
+/* ===== NOVA SEÇÃO NATUREZA ===== */
+
 .titulo {
-  padding-top: 140px;
+  padding-top: 150px;
   text-align: center;
 }
 
@@ -272,7 +273,6 @@ body.claro #tema-btn {
   align-items: center;
 }
 
-/* CARD FULL SCREEN */
 .card {
   width: 100%;
   height: 100vh;
@@ -281,7 +281,6 @@ body.claro #tema-btn {
   align-items: center;
 }
 
-/* CONTAINER */
 .card-container {
   width: 90%;
   max-width: 1000px;
@@ -290,20 +289,20 @@ body.claro #tema-btn {
   display: flex;
   flex-direction: column;
 
-  border-radius: 30px;
+  border-radius: 40px;
   overflow: hidden;
 
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
 }
 
-/* PARTE DE CIMA (75%) */
+/* PARTE SUPERIOR */
 .card-top {
   width: 100%;
   height: 75%;
-  background: linear-gradient(45deg, cyan, magenta);
 }
 
-/* PARTE DE BAIXO (25%) */
+/* PARTE INFERIOR */
 .card-bottom {
   height: 25%;
   padding: 20px;
@@ -320,7 +319,7 @@ body.claro #tema-btn {
   color: white;
 }
 
-/* OVERLAY */
+/* POPUP */
 .overlay {
   position: fixed;
   top: 0;
@@ -342,7 +341,6 @@ body.claro #tema-btn {
   pointer-events: auto;
 }
 
-/* POPUP */
 .popup {
   position: fixed;
   top: 50%;
@@ -374,20 +372,19 @@ body.claro #tema-btn {
   transform: translate(-50%, -50%) scale(1);
 }
 
-/* FECHAR */
 .fechar {
   position: absolute;
   top: 10px;
   right: 10px;
-  background: none;
   border: none;
+  background: none;
   color: white;
   font-size: 18px;
   cursor: pointer;
 }
 @font-face {
   font-family: 'Milk Choco';
-  src: url('/Resources/Milk\ Choco.otf') format('truetype');
+  src: url('/Resources/PR\ Confidential.otf') format('truetype');
 }
 .footer {
   margin-top: 60px;
@@ -416,4 +413,147 @@ body.claro #tema-btn {
   margin-bottom: 10px;
   font-size: 14px;
   color: rgba(255, 255, 255, 0.7);
+}
+.img1 {
+  background-image: url('/Resources/ATVMTM1.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.card-top iframe {
+  width: 90%;
+  height: 90%;
+  border: none;
+  border-radius: 0; 
+}
+
+.img3 {
+  background-image: url('/Resources/ATVMTM1.png');
+  background-size: cover;
+  background-position: center;
+}
+.card-top {
+  overflow: hidden;
+  position: relative;
+}
+.btn-portatil {
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: none;
+
+  color: white;
+  font-size: 12px;
+  text-decoration: none;
+
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+
+  transition: 0.3s;
+}
+
+/* GRADIENTE */
+.btn-portatil::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    120deg,
+    #8a2be2,
+    #4b0082,
+    #00c3ff,
+    #8a2be2
+  );
+
+  background-size: 300% 300%;
+  opacity: 0;
+  z-index: 0;
+
+  transition: 0.4s;
+}
+
+/* TEXTO POR CIMA */
+.btn-portatil span {
+  position: relative;
+  z-index: 2;
+}
+
+/* HOVER */
+.btn-portatil:hover::before {
+  opacity: 0.5;
+  animation: btnGradient 3s ease infinite;
+}
+
+.btn-portatil:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+.btn-container {
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+}
+.card-bottom-relatorio {
+  position: relative;
+}
+.card-bottom {
+  margin-bottom: 40px;
+}
+.card-bottom-relatorio h2 {
+  margin-top: auto;
+}
+body.claro .btn-hab {
+  color: #000000;
+  background-color: #69696991;
+}
+body.claro .card-container{
+  background-color: #8181810e;
+  box-shadow:#000000;
+}
+body.claro .btn-portatil:hover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    120deg,
+    #666666,
+    #ffffff,
+    #000000,
+    #919191
+  );
+
+  background-size: 300% 300%;
+  opacity: 0;
+  z-index: 0;
+
+  transition: 0.4s;
+}
+.sub-popup {
+  position: absolute;
+  top: 100%; /* aparece abaixo do botão */
+  right: 0;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+
+  padding: 10px;
+  border-radius: 12px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.9);
+
+  transition: 0.2s;
+  z-index: 10000; /* maior que o outro */
+}
+
+.sub-popup.ativo {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
 }

@@ -259,7 +259,7 @@ body.claro #tema-btn {
 }
 @font-face {
   font-family: 'Milk Choco';
-  src: url('/Resources/Milk\ Choco.otf') format('truetype');
+  src: url('/Resources/PR\ Confidential.otf') format('truetype');
 }
 .footer {
   margin-top: 60px;
@@ -419,4 +419,32 @@ body.claro .contato-card::before {
     #f7f7f7,
     #b3b3b3
   );
+}
+.sub-popup {
+  position: absolute;
+  top: 100%; /* aparece abaixo do botão */
+  right: 0;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+
+  padding: 10px;
+  border-radius: 12px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.9);
+
+  transition: 0.2s;
+  z-index: 10000; /* maior que o outro */
+}
+
+.sub-popup.ativo {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
 }

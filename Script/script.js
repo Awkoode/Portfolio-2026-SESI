@@ -1,84 +1,109 @@
-  const botaoTema = document.getElementById("tema-btn");
-  const body = document.body;
+const botaoTema = document.getElementById("tema-btn");
+const body = document.body;
 
-  botaoTema.addEventListener("click", () => {
-    body.classList.toggle("claro");
+botaoTema.addEventListener("click", () => {
+  body.classList.toggle("claro");
+});
+
+const hamburger = document.getElementById('hamburger');
+const menu = document.getElementById('menu');
+const navbar = document.querySelector('.navbar');
+
+if (hamburger && menu && navbar) {
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('ativo');
+    menu.classList.toggle('aberto');
+    navbar.classList.toggle('expandida');
   });
 
-  const hamburger = document.getElementById('hamburger');
-  const menu = document.getElementById('menu');
-  const navbar = document.querySelector('.navbar');
-
-  if (hamburger && menu && navbar) {
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('ativo');
-      menu.classList.toggle('aberto');
-      navbar.classList.toggle('expandida');
-    });
-
-    menu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('ativo');
-        menu.classList.remove('aberto');
-        navbar.classList.remove('expandida');
-      });
-    });
-  }
-  const btnMaterias = document.getElementById("btn-materias");
-  const popupMaterias = document.getElementById("popup-materias");
-
-  if (btnMaterias && popupMaterias) {
-    btnMaterias.addEventListener("click", (e) => {
-      e.preventDefault();
-      popupMaterias.classList.toggle("ativo");
-    });
-
-    document.addEventListener("click", (e) => {
-      if (!btnMaterias.contains(e.target) && !popupMaterias.contains(e.target)) {
-        popupMaterias.classList.remove("ativo");
-      }
-    });
-  }
-  const cards = document.querySelectorAll('.card');
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('ativo');
-      }
-    });
-  }, {
-    threshold: 0.3
-  });
-
-  cards.forEach(card => {
-    observer.observe(card);
-  });
-  // POPUP HABILIDADES
-  const botoes = document.querySelectorAll('.btn-hab');
-  const overlay = document.getElementById('overlay');
-  const popups = document.querySelectorAll('.popup');
-  const fecharBtns = document.querySelectorAll('.fechar');
-
-  botoes.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const id = btn.getAttribute('data-popup');
-      document.getElementById(id).classList.add('ativo');
-      overlay.classList.add('ativo');
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('ativo');
+      menu.classList.remove('aberto');
+      navbar.classList.remove('expandida');
     });
   });
+}
 
-  fecharBtns.forEach(btn => {
-    btn.addEventListener('click', fecharPopup);
+const btnMaterias = document.getElementById("btn-materias");
+const popupMaterias = document.getElementById("popup-materias");
+
+// ===== NOVO: popup técnico =====
+const btnTecnico = document.getElementById("btn-tecnico");
+const popupTecnico = document.getElementById("popup-tecnico");
+
+if (btnMaterias && popupMaterias) {
+  btnMaterias.addEventListener("click", (e) => {
+    e.preventDefault();
+    popupMaterias.classList.toggle("ativo");
   });
 
-  overlay.addEventListener('click', fecharPopup);
+  document.addEventListener("click", (e) => {
+    const clicouDentroMaterias =
+      btnMaterias.contains(e.target) || popupMaterias.contains(e.target);
 
-  function fecharPopup() {
-    popups.forEach(p => p.classList.remove('ativo'));
-    overlay.classList.remove('ativo');
-  }
-  const contatos = document.querySelectorAll('.contato-card');
+    const clicouDentroTecnico =
+      btnTecnico && popupTecnico &&
+      (btnTecnico.contains(e.target) || popupTecnico.contains(e.target));
+
+    if (!clicouDentroMaterias && !clicouDentroTecnico) {
+      popupMaterias.classList.remove("ativo");
+      if (popupTecnico) popupTecnico.classList.remove("ativo");
+    }
+  });
+}
+
+// ===== NOVO: lógica do submenu técnico =====
+if (btnTecnico && popupTecnico) {
+  btnTecnico.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation(); // 🔥 evita conflito com o clique global
+    popupTecnico.classList.toggle("ativo");
+  });
+}
+
+const cards = document.querySelectorAll('.card');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('ativo');
+    }
+  });
+}, {
+  threshold: 0.3
+});
+
+cards.forEach(card => {
+  observer.observe(card);
+});
+
+// POPUP HABILIDADES
+const botoes = document.querySelectorAll('.btn-hab');
+const overlay = document.getElementById('overlay');
+const popups = document.querySelectorAll('.popup');
+const fecharBtns = document.querySelectorAll('.fechar');
+
+botoes.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const id = btn.getAttribute('data-popup');
+    document.getElementById(id).classList.add('ativo');
+    overlay.classList.add('ativo');
+  });
+});
+
+fecharBtns.forEach(btn => {
+  btn.addEventListener('click', fecharPopup);
+});
+
+overlay.addEventListener('click', fecharPopup);
+
+function fecharPopup() {
+  popups.forEach(p => p.classList.remove('ativo'));
+  overlay.classList.remove('ativo');
+}
+
+const contatos = document.querySelectorAll('.contato-card');
 
 const obsContato = new IntersectionObserver((entries) => {
   entries.forEach(entry => {

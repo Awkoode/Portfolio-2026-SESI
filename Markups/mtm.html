@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Matemática</title>
+  <title>Matemática - Portfólio AWK</title>
   <link rel="stylesheet" href="/Styles/mtms.css">
 </head>
 <body>
@@ -19,69 +19,72 @@
       <a href="contato.html">Contato</a>
     </nav>
 
-    <button id="tema-btn"></button>
-
     <div id="popup-materias" class="popup-materias">
       <a href="mtm.html">Matemática</a>
       <a href="ntr.html">Natureza</a>
       <a href="hmn.html">Humanas</a>
       <a href="lng.html">Linguagens</a>
-      <a href="#">Técnico</a>
+      <a href="#" id="btn-tecnico">Técnico</a>
+
+<div id="popup-tecnico" class="sub-popup">
+  <a href="tec.html">DS</a>
+  <a href="tec.html">Redes</a>
+</div>
     </div>
+
+    <button id="tema-btn"></button>
   </header>
 
   <main>
 
     <!-- TÍTULO -->
     <section class="titulo">
-      <h1>Matemática</h1>
+      <h1>Matematica</h1>
     </section>
 
     <!-- CARDS -->
     <section class="cards">
 
-      <!-- CARD 1 -->
       <div class="card">
         <div class="card-container">
-
-          <div class="card-top"></div>
-
-          <div class="card-bottom">
-            <h2>Projeto 1</h2>
-            <p>Descrição do projeto.</p>
-            <button class="btn-hab" data-popup="popup1">Habilidades</button>
+          <div class="card-top img2">
+            <div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%;
+ padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+ border-radius: 8px; will-change: transform;">
+  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+    src="https://www.canva.com/design/DAHIAIMIrMs/aPMUUJr9CalN2GSVFRv5BA/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+  </iframe>
+</div>
+<a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAHIAIMIrMs&#x2F;aPMUUJr9CalN2GSVFRv5BA&#x2F;view?utm_content=DAHIAIMIrMs&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener"></a>
           </div>
-
-        </div>
-      </div>
-
-      <!-- CARD 2 -->
-      <div class="card">
-        <div class="card-container">
-
-          <div class="card-top"></div>
-
           <div class="card-bottom">
-            <h2>Projeto 2</h2>
-            <p>Descrição do projeto.</p>
+            <h2>Jogo Quebrando a Banca</h2>
+            <p>A atividade consistiu na criação de um jogo baseado em cartas para aplicar conceitos de análise combinatória e probabilidade.
+Os participantes tomam decisões estratégicas considerando as chances de obter determinados resultados.
+O objetivo foi compreender como a matemática influencia situações de risco e tomada de decisão.
+A proposta tornou o aprendizado mais prático, dinâmico e interativo. <b>Jogo completo <a href="https://kassinomat.netlify.app/" target="_blank">Aqui</a></b></p>
             <button class="btn-hab" data-popup="popup2">Habilidades</button>
           </div>
-
         </div>
       </div>
 
-      <!-- CARD 3 -->
       <div class="card">
         <div class="card-container">
-
-          <div class="card-top"></div>
-
+          <div class="card-top img3"></div>
           <div class="card-bottom">
-            <h2>Projeto 3</h2>
-            <p>Descrição do projeto.</p>
+            <div class="card-bottom card-bottom-relatorio">
+            <h2>Atividade Quebrando a Banca</h2>
+            <p>A atividade aplica conceitos de análise combinatória e probabilidade para tomada de decisões estratégicas.
+Os jogadores precisam calcular riscos ao comprar cartas e tentar se aproximar de 21 pontos.
+O objetivo é aprender matemática de forma prática, interativa e divertida.</p>
             <button class="btn-hab" data-popup="popup3">Habilidades</button>
+            <div class="btn-container">
+  <a href="https://docs.google.com/document/d/1LhTlIL_Q0HN5OHvvO5uN46IuZXCJ_qgGC0NwrMzalsI/edit?usp=sharing" target="_blank" class="btn-portatil">
+  Ver atividade completa
+</a>
+    </div>
+  </div>
           </div>
-
         </div>
       </div>
 
@@ -89,28 +92,26 @@
 
   </main>
 
-  <!-- OVERLAY -->
+  <!-- POPUPS -->
   <div class="overlay" id="overlay"></div>
 
-  <!-- POPUPS -->
-  <div class="popup" id="popup1">
-    <button class="fechar">✖</button>
-    <h2>Projeto 1</h2>
-    <p>Texto longo aqui...</p>
-  </div>
 
   <div class="popup" id="popup2">
     <button class="fechar">✖</button>
-    <h2>Projeto 2</h2>
-    <p>Texto longo aqui...</p>
+    <h2>Jogo Quebrando a Banca</h2>
+    <p>C5: Aplicar o pensamento probabilístico para quantificar e fazer previsões em situações aplicadas a diferentes áreas do conhecimento e da vida cotidiana <br> <br>
+    H30: Identificar dados, regularidades e relações numa situação que envolva o raciocínio combinatório, utilizando os processos de contagem. <br> <br>
+H31: Reconhecer fenômenos e eventos (naturais, científicos, tecnológicos e/ou  sociais) de caráter aleatório, compreendendo o significado e a importância da  probabilidade como meio de prever resultados</p>
   </div>
 
   <div class="popup" id="popup3">
     <button class="fechar">✖</button>
-    <h2>Projeto 3</h2>
-    <p>Texto longo aqui...</p>
+    <h2>Atividade Quebrando a Banca</h2>
+    <p>C5: Aplicar o pensamento probabilístico para quantificar e fazer previsões em situações aplicadas a diferentes áreas do conhecimento e da vida cotidiana <br> <br>
+    H30: Identificar dados, regularidades e relações numa situação que envolva o raciocínio combinatório, utilizando os processos de contagem. <br> <br>
+H31: Reconhecer fenômenos e eventos (naturais, científicos, tecnológicos e/ou  sociais) de caráter aleatório, compreendendo o significado e a importância da  probabilidade como meio de prever resultados</p>
   </div>
-
+  
   <footer class="footer">
     <div class="footer-content">
       <p>© 2026 Arthur Wolf. Todos os direitos reservados.</p>
