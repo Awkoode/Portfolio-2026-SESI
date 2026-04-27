@@ -93,7 +93,7 @@ body.claro {
   border: none;
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.1);
-  background-image: url('/Resources/solicon.png');
+  background-image: url('solicon.png');
   background-repeat: no-repeat;
   filter: invert(1);
   background-position: center;
@@ -154,7 +154,7 @@ body.claro .hamburger {
 }
 
 body.claro #tema-btn {
-  background-image: url('/Resources/luaicon.png');
+  background-image: url('luaicon.png');
   background-color: rgba(0, 0, 0, 0.05);
 }
 
@@ -255,9 +255,136 @@ body.claro #tema-btn {
   pointer-events: auto;
   transform: translateX(-50%) scale(1);
 }
+/* ===== NOVA SEÇÃO NATUREZA ===== */
+
+.titulo {
+  padding-top: 150px;
+  text-align: center;
+}
+
+.titulo h1 {
+  font-size: 80px;
+}
+
+/* CARDS */
+.cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-container {
+  width: 90%;
+  max-width: 1000px;
+  height: 85vh;
+
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 40px;
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+}
+
+/* PARTE SUPERIOR */
+.card-top {
+  width: 100%;
+  height: 75%;
+}
+
+/* PARTE INFERIOR */
+.card-bottom {
+  height: 25%;
+  padding: 20px;
+}
+
+/* BOTÃO */
+.btn-hab {
+  margin-top: 10px;
+  padding: 6px 12px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+
+/* POPUP */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(8px);
+
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+
+  z-index: 2000;
+}
+
+.overlay.ativo {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+
+  width: 90%;
+  max-width: 600px;
+  max-height: 70vh;
+
+  padding: 20px;
+
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(15px);
+
+  border-radius: 20px;
+  overflow-y: auto;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+
+  z-index: 2001;
+}
+
+.popup.ativo {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.fechar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
 @font-face {
   font-family: 'Milk Choco';
-  src: url('/Resources/PR\ Confidential.otf') format('truetype');
+  src: url('PR\ Confidential.otf') format('truetype');
 }
 .footer {
   margin-top: 60px;
@@ -287,68 +414,18 @@ body.claro #tema-btn {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.7);
 }
-/* SEÇÃO PROJETOS */
-.projetos-container {
-  max-width: 800px;
-  margin: 150px auto 60px;
-  padding: 30px;
-
-  text-align: center;
-
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
-
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+.card-top iframe {
+  width: 90%;
+  height: 90%;
+  border: none;
+  border-radius: 0; 
 }
+.img3 .aifreime {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 0;
 
-.projetos-container h1 {
-  margin-bottom: 20px;
-  font-size: 28px;
-}
-
-.projetos-container p {
-  margin-bottom: 15px;
-  font-size: 15px;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-/* BOTÃO GITHUB */
-.btn-github {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 20px;
-
-  border-radius: 20px;
-  text-decoration: none;
-
-  color: white;
-  background: rgba(255, 255, 255, 0.1);
-
-  transition: 0.3s;
-}
-
-.btn-github:hover {
-  transform: translateY(-3px);
-  background: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-}
-
-/* MODO CLARO */
-body.claro .projetos-container {
-  background: rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-body.claro .projetos-container p {
-  color: #333;
-}
-
-body.claro .btn-github {
-  color: #222;
-  background: rgba(0, 0, 0, 0.05);
 }
 .sub-popup {
   position: absolute;

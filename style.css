@@ -4,30 +4,22 @@
   box-sizing: border-box;
 }
 
-/* BACKGROUND ANIMADO */
 body {
   min-height: 100vh;
-  font-family: 'Milk Choco', sans-serif;
   color: white;
   background: linear-gradient(-45deg, #000000, #1a001f, #4b0082, #2e003e, #000000);
   background-size: 400% 400%;
   animation: fundoAnimado 10s ease infinite;
   transition: background 0.5s ease;
+  font-family: 'PR Confidential', sans-serif;
 }
 
 @keyframes fundoAnimado {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-/* BACKGROUND — MODO CLARO */
-body.claro {
-  background: linear-gradient(-45deg, #f0f0f0, #e0e0e0, #ffffff);
-  color: #222;
-}
-
-/* NAVBAR */
 .navbar {
   position: fixed;
   top: 20px;
@@ -93,10 +85,10 @@ body.claro {
   border: none;
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.1);
-  background-image: url('/Resources/solicon.png');
+  background-image: url('solicon.png');
   background-repeat: no-repeat;
-  filter: invert(1);
   background-position: center;
+  filter: invert(1);
   background-size: 60%;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
@@ -134,7 +126,50 @@ body.claro {
 .hamburger.ativo span:nth-child(2) { opacity: 0; }
 .hamburger.ativo span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* NAVBAR — MODO CLARO */
+/* SOBRE */
+.sobre {
+  padding: 150px 20px 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.sobre-card {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  padding: 50px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  align-items: center;
+}
+
+.sobre-fotos img {
+  width: 300px;
+  border-radius: 10px;
+  display: block;
+}
+
+.sobre-texto h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.sobre-texto p {
+  line-height: 1.6;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* MODO CLARO */
+body.claro {
+  background: linear-gradient(-45deg, #f0f0f0, #e0e0e0, #ffffff);
+  color: #222;
+}
+
 body.claro .navbar {
   background: rgba(0, 0, 0, 0.05);
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -154,11 +189,14 @@ body.claro .hamburger {
 }
 
 body.claro #tema-btn {
-  background-image: url('/Resources/luaicon.png');
+  background-image: url('luaicon.png');
   background-color: rgba(0, 0, 0, 0.05);
 }
+body.claro .sobre-texto p {
+  color: rgba(0, 0, 0, 0.7);
+}
 
-/* NAVBAR — RESPONSIVO */
+/* RESPONSIVO */
 @media (max-width: 768px) {
   .navbar {
     height: auto;
@@ -207,6 +245,30 @@ body.claro #tema-btn {
   #tema-btn:hover {
     transform: none;
   }
+
+  .sobre {
+    padding-top: 160px;
+  }
+
+  .sobre-card {
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .sobre-fotos img {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .sobre-texto h2 {
+    font-size: 28px;
+  }
+
+  .sobre-texto p {
+    font-size: 16px;
+  }
 }
 .popup-materias {
   position: absolute;
@@ -214,8 +276,9 @@ body.claro #tema-btn {
   left: 50%;
   transform: translateX(-50%) scale(0.9);
 
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(20px);
+  background: rgba(0, 0, 0, 0.068);
+  backdrop-filter: blur(35px);
+  -webkit-backdrop-filter: blur(25px);
 
   border-radius: 20px;
   padding: 18px;
@@ -227,7 +290,9 @@ body.claro #tema-btn {
   pointer-events: none;
   transition: 0.25s ease;
 
+  overflow: visible;
   z-index: 9999;
+  isolation: isolate;
 
   /* 👇 brilho */
   box-shadow: 
@@ -251,140 +316,35 @@ body.claro #tema-btn {
 }
 
 .popup-materias.ativo {
-  opacity: 1;
+  opacity: 2;
   pointer-events: auto;
   transform: translateX(-50%) scale(1);
 }
-/* ===== NOVA SEÇÃO NATUREZA ===== */
-
-.titulo {
-  padding-top: 150px;
-  text-align: center;
+.sobre-fotos {
+  display: inline-block;
+  padding: 5px;
+  border-radius: 15px;
+  background: linear-gradient(45deg, #00ffff, #ff00ff, #00ff88);
+  background-size: 300% 300%;
+  animation: animarBorda 4s linear infinite;
 }
-
-.titulo h1 {
-  font-size: 80px;
+@keyframes animarBorda {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
-
-/* CARDS */
-.cards {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+body.claro .sobre-fotos{
+  display: inline-block;
+  padding: 5px;
+  border-radius: 15px;
+  background: linear-gradient(45deg, #ffffff, #808080, #000000);
+  background-size: 300% 300%;
+  animation: animarBorda 4s linear infinite;
 }
-
-.card {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.card-container {
-  width: 90%;
-  max-width: 1000px;
-  height: 85vh;
-
-  display: flex;
-  flex-direction: column;
-
-  border-radius: 40px;
-  overflow: hidden;
-
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-}
-
-/* PARTE SUPERIOR */
-.card-top {
-  width: 100%;
-  height: 75%;
-}
-
-/* PARTE INFERIOR */
-.card-bottom {
-  height: 25%;
-  padding: 20px;
-}
-
-/* BOTÃO */
-.btn-hab {
-  margin-top: 10px;
-  padding: 6px 12px;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
-  background: rgba(255,255,255,0.1);
-  color: white;
-}
-
-/* POPUP */
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(8px);
-
-  opacity: 0;
-  pointer-events: none;
-  transition: 0.3s;
-
-  z-index: 2000;
-}
-
-.overlay.ativo {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.popup {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0.9);
-
-  width: 90%;
-  max-width: 600px;
-  max-height: 70vh;
-
-  padding: 20px;
-
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(15px);
-
-  border-radius: 20px;
-  overflow-y: auto;
-
-  opacity: 0;
-  pointer-events: none;
-  transition: 0.3s;
-
-  z-index: 2001;
-}
-
-.popup.ativo {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translate(-50%, -50%) scale(1);
-}
-
-.fechar {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  border: none;
-  background: none;
-  color: white;
-  font-size: 18px;
-  cursor: pointer;
-}
-@font-face {
-  font-family: 'Milk Choco';
-  src: url('/Resources/PR\ Confidential.otf') format('truetype');
+@keyframes animarBorda {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 .footer {
   margin-top: 60px;
@@ -414,120 +374,43 @@ body.claro #tema-btn {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.7);
 }
-.img1 {
-  background-image: url('/Resources/ATVNTR1.jpg');
-  background-size: cover;
-  background-position: center;
+
+.tecnologias {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 13px;
 }
 
-.card-top iframe {
-  width: 90%;
-  height: 90%;
-  border: none;
-  border-radius: 0; /* ou 20px se quiser arredondar dentro */
-}
-
-.img3 {
-  background-image: url('/Resources/ATVNTR3.png');
-  background-size: cover;
-  background-position: center;
-}
-.card-top {
-  overflow: hidden;
-  position: relative;
-}
-.btn-portatil {
-  padding: 10px 16px;
-  border-radius: 12px;
-  border: none;
-
-  color: white;
-  font-size: 12px;
-  text-decoration: none;
-
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-
+.tech {
+  padding: 5px 10px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.08);
   transition: 0.3s;
 }
 
-/* GRADIENTE */
-.btn-portatil::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background: linear-gradient(
-    120deg,
-    #8a2be2,
-    #4b0082,
-    #00c3ff,
-    #8a2be2
-  );
-
-  background-size: 300% 300%;
-  opacity: 0;
-  z-index: 0;
-
-  transition: 0.4s;
+.tech:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-2px);
 }
 
-/* TEXTO POR CIMA */
-.btn-portatil span {
-  position: relative;
-  z-index: 2;
+/* modo claro */
+body.claro .footer-content {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/* HOVER */
-.btn-portatil:hover::before {
-  opacity: 0.5;
-  animation: btnGradient 3s ease infinite;
+body.claro .footer-content p {
+  color: rgba(0,0,0,0.6);
 }
 
-.btn-portatil:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+body.claro .tech {
+  background: rgba(0,0,0,0.08);
 }
-.btn-container {
-  position: absolute;
-  bottom: 15px;
-  right: 20px;
-}
-.card-bottom-relatorio {
-  position: relative;
-}
-.card-bottom {
-  margin-bottom: 40px;
-}
-.card-bottom-relatorio h2 {
-  margin-top: auto;
-}
-body.claro .btn-hab {
-  color: #000000;
-  background-color: #69696991;
-}
-body.claro .card-container{
-  background-color: #8181810e;
-  box-shadow:#000000;
-}
-body.claro .btn-portatil:hover::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background: linear-gradient(
-    120deg,
-    #666666,
-    #ffffff,
-    #000000,
-    #919191
-  );
-
-  background-size: 300% 300%;
-  opacity: 0;
-  z-index: 0;
-
-  transition: 0.4s;
+@font-face {
+  font-family: 'PR Confidential';
+  src: url('PR\ Confidential.otf') format('truetype');
 }
 .sub-popup {
   position: absolute;

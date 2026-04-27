@@ -4,11 +4,7 @@
   box-sizing: border-box;
 }
 
-@font-face {
-  font-family: 'Milk Choco';
-  src: url('/Resources/PR\ Confidential.otf') format('truetype');
-}
-
+/* BACKGROUND ANIMADO */
 body {
   min-height: 100vh;
   font-family: 'Milk Choco', sans-serif;
@@ -25,6 +21,7 @@ body {
   100% { background-position: 0% 50%; }
 }
 
+/* BACKGROUND — MODO CLARO */
 body.claro {
   background: linear-gradient(-45deg, #f0f0f0, #e0e0e0, #ffffff);
   color: #222;
@@ -96,12 +93,12 @@ body.claro {
   border: none;
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.1);
-  background-image: url('/Resources/solicon.png');
+  background-image: url('solicon.png');
   background-repeat: no-repeat;
+  filter: invert(1);
   background-position: center;
   background-size: 60%;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  filter: invert(1);
 }
 
 #tema-btn:hover {
@@ -137,6 +134,7 @@ body.claro {
 .hamburger.ativo span:nth-child(2) { opacity: 0; }
 .hamburger.ativo span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
+/* NAVBAR — MODO CLARO */
 body.claro .navbar {
   background: rgba(0, 0, 0, 0.05);
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -156,10 +154,11 @@ body.claro .hamburger {
 }
 
 body.claro #tema-btn {
-  background-image: url('/Resources/luaicon.png');
+  background-image: url('luaicon.png');
   background-color: rgba(0, 0, 0, 0.05);
 }
 
+/* NAVBAR — RESPONSIVO */
 @media (max-width: 768px) {
   .navbar {
     height: auto;
@@ -215,9 +214,8 @@ body.claro #tema-btn {
   left: 50%;
   transform: translateX(-50%) scale(0.9);
 
-  background: rgba(255, 255, 255, 0.021);
-  backdrop-filter: blur(35px);
-  -webkit-backdrop-filter: blur(25px);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
 
   border-radius: 20px;
   padding: 18px;
@@ -229,8 +227,7 @@ body.claro #tema-btn {
   pointer-events: none;
   transition: 0.25s ease;
 
-  z-index: 99999;
-  isolation: isolate;
+  z-index: 9999;
 
   /* 👇 brilho */
   box-shadow: 
@@ -257,6 +254,10 @@ body.claro #tema-btn {
   opacity: 1;
   pointer-events: auto;
   transform: translateX(-50%) scale(1);
+}
+@font-face {
+  font-family: 'Milk Choco';
+  src: url('PR\ Confidential.otf') format('truetype');
 }
 .footer {
   margin-top: 60px;
@@ -286,12 +287,13 @@ body.claro #tema-btn {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.7);
 }
-/* SEÇÃO SOBRE */
-.sobre-container {
-  max-width: 900px;
-  margin: 80px auto;
-  margin-top: 190px;
+/* SEÇÃO PROJETOS */
+.projetos-container {
+  max-width: 800px;
+  margin: 150px auto 60px;
   padding: 30px;
+
+  text-align: center;
 
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(12px);
@@ -299,30 +301,54 @@ body.claro #tema-btn {
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.1);
 
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);  
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
-.sobre-container h2 {
-  font-size: 28px;
+.projetos-container h1 {
   margin-bottom: 20px;
-  text-align: center;
+  font-size: 28px;
 }
 
-.sobre-container p {
-  font-size: 15px;
-  line-height: 1.6;
+.projetos-container p {
   margin-bottom: 15px;
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.8);
 }
 
-/* modo claro */
-body.claro .sobre-container {
+/* BOTÃO GITHUB */
+.btn-github {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+
+  border-radius: 20px;
+  text-decoration: none;
+
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+
+  transition: 0.3s;
+}
+
+.btn-github:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* MODO CLARO */
+body.claro .projetos-container {
   background: rgba(0, 0, 0, 0.05);
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-body.claro .sobre-container p {
+body.claro .projetos-container p {
   color: #333;
+}
+
+body.claro .btn-github {
+  color: #222;
+  background: rgba(0, 0, 0, 0.05);
 }
 .sub-popup {
   position: absolute;

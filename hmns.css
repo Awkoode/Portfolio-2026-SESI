@@ -93,9 +93,9 @@ body.claro {
   border: none;
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.1);
-  background-image: url('/Resources/solicon.png');
-  filter: invert(1);
+  background-image: url('solicon.png');
   background-repeat: no-repeat;
+  filter: invert(1);
   background-position: center;
   background-size: 60%;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -154,7 +154,7 @@ body.claro .hamburger {
 }
 
 body.claro #tema-btn {
-  background-image: url('/Resources/luaicon.png');
+  background-image: url('luaicon.png');
   background-color: rgba(0, 0, 0, 0.05);
 }
 
@@ -214,9 +214,8 @@ body.claro #tema-btn {
   left: 50%;
   transform: translateX(-50%) scale(0.9);
 
-  background: rgba(255, 255, 255, 0.021);
-  backdrop-filter: blur(35px);
-  -webkit-backdrop-filter: blur(25px);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
 
   border-radius: 20px;
   padding: 18px;
@@ -228,8 +227,7 @@ body.claro #tema-btn {
   pointer-events: none;
   transition: 0.25s ease;
 
-  z-index: 99999;
-  isolation: isolate;
+  z-index: 9999;
 
   /* 👇 brilho */
   box-shadow: 
@@ -257,9 +255,141 @@ body.claro #tema-btn {
   pointer-events: auto;
   transform: translateX(-50%) scale(1);
 }
+/* ===== NOVA SEÇÃO NATUREZA ===== */
+
+.titulo {
+  padding-top: 150px;
+  text-align: center;
+}
+
+.titulo h1 {
+  font-size: 80px;
+}
+
+/* CARDS */
+.cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-container {
+  width: 90%;
+  max-width: 1000px;
+  height: 85vh;
+
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 40px;
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+}
+
+/* PARTE SUPERIOR */
+.card-top {
+  width: 100%;
+  height: 75%;
+}
+.img1 {
+  background-image: url('ATVHMNS.png');
+  background-size: cover;
+  background-position: center;
+}
+
+/* PARTE INFERIOR */
+.card-bottom {
+  height: 25%;
+  padding: 20px;
+}
+
+/* BOTÃO */
+.btn-hab {
+  margin-top: 10px;
+  padding: 6px 12px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+
+/* POPUP */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(8px);
+
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+
+  z-index: 2000;
+}
+
+.overlay.ativo {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+
+  width: 90%;
+  max-width: 600px;
+  max-height: 70vh;
+
+  padding: 20px;
+
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(15px);
+
+  border-radius: 20px;
+  overflow-y: auto;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+
+  z-index: 2001;
+}
+
+.popup.ativo {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.fechar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
 @font-face {
   font-family: 'Milk Choco';
-  src: url('/Resources/PR\ Confidential.otf') format('truetype');
+  src: url('PR\ Confidential.otf') format('truetype');
 }
 .footer {
   margin-top: 60px;
@@ -289,136 +419,16 @@ body.claro #tema-btn {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.7);
 }
-/* SEÇÃO CONTATO */
-.contato-container {
-  max-width: 1000px;
-  margin: 150px auto 60px;
-  padding: 30px;
-  text-align: center;
+.card-top iframe {
+  width: 90%;
+  height: 90%;
+  border: none;
+  border-radius: 0; 
 }
-
-.contato-container h1 {
-  font-size: 30px;
-  margin-bottom: 10px;
-}
-
-.contato-desc {
-  margin-bottom: 30px;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-/* GRID */
-.contato-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-}
-
-/* CARDS */
-.contato-card {
-  text-decoration: none;
-  color: white;
-
-  padding: 25px;
-  border-radius: 20px;
-
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
-
-  border: 1px solid rgba(255, 255, 255, 0.1);
-
-  transition: 0.3s;
-}
-
-.contato-card span {
-  font-size: 30px;
-  display: block;
-  margin-bottom: 10px;
-}
-
-.contato-card h3 {
-  margin-bottom: 5px;
-}
-
-.contato-card p {
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-/* HOVER */
-.contato-card:hover {
-  transform: translateY(-5px) scale(1.03);
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-}
-
-/* MODO CLARO */
-body.claro .contato-card {
-  background: rgba(0, 0, 0, 0.05);
-  color: #222;
-}
-
-body.claro .contato-card p {
-  color: #444;
-}
-
-body.claro .contato-desc {
-  color: #444;
-}
-/* GRADIENTE ANIMADO NOS CARDS */
-.contato-card {
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-}
-
-/* camada do gradiente */
-.contato-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background: linear-gradient(
-    120deg,
-    #8a2be2,
-    #4b0082,
-    #00c3ff,
-    #8a2be2
-  );
-
-  background-size: 300% 300%;
-  opacity: 0;
-  transition: 0.4s;
-
-  z-index: -1;
-}
-
-/* animação do gradiente */
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* hover ativa o gradiente */
-.contato-card:hover::before {
-  opacity: 0.25;
-  animation: gradientMove 3s ease infinite;
-}
-
-/* mantém o conteúdo visível por cima */
-.contato-card * {
-  position: relative;
-  z-index: 2;
-}
-body.claro .contato-card::before {
-  background: linear-gradient(
-    120deg,
-    #000000,
-    #464646,
-    #f7f7f7,
-    #b3b3b3
-  );
+.img3 {
+  background-image: url('ATVHMNS2.png');
+  background-position: center;
+  justify-content: center;
 }
 .sub-popup {
   position: absolute;
